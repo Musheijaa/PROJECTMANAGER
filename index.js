@@ -4,7 +4,8 @@ const { Pool } = require('pg');
 const cors = require('cors');
 const path = require('path');
 const { randomUUID } = require('crypto');
-const { Low, JSONFile } = require('lowdb');
+const { Low } = require('lowdb');
+const { JSONFile } = require('lowdb/node');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -33,10 +34,8 @@ async function initDataStore() {
   } else {
     const file = path.join(__dirname, 'db.json');
     const adapter = new JSONFile(file);
-    db = new Low(adapter);
+    db = new Low(adapter, { tasks: [] });
     await db.read();
-    db.data = db.data || { tasks: [] };
-    await db.write();
     console.log('Using simple JSON store (lowdb).');
   }
 }
