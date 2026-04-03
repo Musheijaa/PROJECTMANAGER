@@ -1,0 +1,27 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "Professional task management web application",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "build": "echo 'No build step required'",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "task-manager",
+    "express",
+    "postgresql"
+  ],
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
